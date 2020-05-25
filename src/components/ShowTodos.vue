@@ -5,7 +5,7 @@
         <div class="col-sm-5"  v-for="todo in todos" :key="todo.index" >
               <div class="card">
                 <div class="card-header">
-                    {{ todo.title}}
+                    <p>{{ todo.title}}</p>
                      <div class="right-items">
                         <p class="due-date"> {{todo.dueDate}} </p> 
                         <label class="status" @dblclick="editTodoStatus(todo)">{{ todo.status}}</label>

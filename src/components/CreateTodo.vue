@@ -1,11 +1,8 @@
 <template>
   <div class="todo-container">
-    <input type="text" class="k">
     <div class="todo">
      <div class="form-wrapper">
         <p class="todo-title">Create Todos</p>
-                      <input type="text" id="title" name="title" class="title" v-model="todo.title">
-
         <form>
             <div class="wrapper">
               <label for="title">Title</label>
