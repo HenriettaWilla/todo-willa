@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" class="hello-image">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CreateTodo msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CreateTodo from './components/CreateTodo.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CreateTodo
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+ body{
+    background: lightseagreen;
+  }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,10 +27,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-
+  background: lightseagreen;
+ 
 
   .hello-image {
     border: 5px solid orangered;
   }
 }
 </style>
+
