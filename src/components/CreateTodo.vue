@@ -1,6 +1,6 @@
 <template>
   <div class="todo-container">
-    <p class="kanban"> KANBAN + TODO = KANDO</p>
+    <p class="kanban" data-cy="kanban"> KANBAN + TODO = KANDO</p>
     <div class="todo">
      <div class="form-wrapper">
         <p class="todo-title">Create Todos</p>
@@ -20,10 +20,6 @@
                      <option v-for="option in options" :key="option.value">{{
                         option.text
                       }}</option>
-                  <!-- <option value="TODO">TODO</option>
-                  <option value="DOING">DOING</option>
-                  <option value="DONE">DONE</option>
-                  <option value="OTHER">OTHER</option> -->
                 </select>
                 </div>
           </div>

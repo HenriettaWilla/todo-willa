@@ -16,6 +16,10 @@ describe('Todo App', () => {
     cy.get('.submit-btn').click()
    });
 
+   it('should check if there is text KANBAN + TODO = KANDO', () => {
+     cy.get('[data-cy=kanban]').should('contain', 'KANBAN + TODO = KANDO')
+   })
+
    it('Validate that the new todo has been created', () => {
      cy.get('[data-cy=display-title]').first().should('contain', 'First Todo')
      cy.get('.card .header .right-items').first().should('contain', '01/08/20')
