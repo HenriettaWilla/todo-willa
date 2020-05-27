@@ -1,10 +1,14 @@
 <template>
  <div class="all-todos">
-     
+   
+
      <div class="row">
-        <div class="col-sm-5"  v-for="todo in todos" :key="todo.index" >
+
+        <div class="col-sm-5"  v-for="todo in todos" :key="todo.index">
+
               <div class="card">
                 <div class="card-header">
+
                     <p>{{ todo.title}}</p>
                      <div class="right-items">
                         <p class="due-date"> {{todo.dueDate}} </p> 
@@ -19,11 +23,11 @@
                     <p class="card-text"> {{ todo.description}} </p>
                      <div class="footer-btn">
                         <button class="edit-btn"  data-toggle="modal" data-target="#editModal">Edit</button>
-                        <button class="delete-btn" @click="deleteTodo(todo)">Delete</button>
+                        <button data-cy="delete" class="delete-btn" @click="deleteTodo(todo)">Delete</button>
                     </div>
                 </div>
-            </div>
-            <!-- Modal -->
+            </div> 
+            <!-- modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -86,14 +90,6 @@ export default {
   data(){
       return {
         editedTodo: null,
-          to: {
-               id: '',
-        title: '',
-        description: '',
-        status: '',
-        dueDate: '',
-        timeline:''
-          }
       }
   },
   methods: {
@@ -126,6 +122,8 @@ export default {
 
 <style lang="scss">
    .all-todos{
+     width: 100%;
+     min-height: 300px;
     .todos{
         
     }
@@ -197,9 +195,9 @@ export default {
     .status, .due-date{
         border: 1px solid lightgray;
         padding: 5px;
-        background: lightgray;
+       // background: lightgray;
         font-weight: bold;
-        margin-left: 12px;
+       // margin-left: 12px;
         font-size: 15px;
         // margin-left: 5px;
     }

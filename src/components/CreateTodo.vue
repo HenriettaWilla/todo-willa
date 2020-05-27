@@ -1,5 +1,6 @@
 <template>
   <div class="todo-container">
+    <p class="kanban"> KANBAN + TODO = KANDO</p>
     <div class="todo">
      <div class="form-wrapper">
         <p class="todo-title">Create Todos</p>
@@ -15,17 +16,20 @@
           <div class="wrapper">   
               <label for="status">Select Status</label>
                 <div>
-                  <select class="status" id="status" v-model="todo.status">
-                  <option value="TODO">TODO</option>
+                  <select class="status" id="status" v-model="todo.status" data-cy='select-input'>
+                     <option v-for="option in options" :key="option.value">{{
+                        option.text
+                      }}</option>
+                  <!-- <option value="TODO">TODO</option>
                   <option value="DOING">DOING</option>
                   <option value="DONE">DONE</option>
-                  <option value="OTHER">OTHER</option>
+                  <option value="OTHER">OTHER</option> -->
                 </select>
                 </div>
           </div>
           <div class="wrapper">
             <label for="due-date">Due date</label>
-              <datepicker v-model="todo.dueDate" name="due-date" id="due-date" class="due-date"></datepicker>
+              <datepicker v-model="todo.dueDate" name="due-date" id="due-date" class="due-date" data-cy='due-date'></datepicker>
           </div>
           <div class="wrapper">
             <button class="submit-btn" type="submit" @click.prevent="addTodo()">Submit</button>
@@ -34,7 +38,6 @@
      </div>
   </div>
     <show-todos :todos="this.todos" @delete="deleteTodo" @edit="editTodo" @editStatus="editTodoStatus"></show-todos>
-
   </div>
 
 </template>
@@ -42,6 +45,7 @@
 <script>
 import Datepicker from 'vuejs-datepicker';
 import ShowTodos from './ShowTodos.vue';
+
 export default {
   name: 'CreateTodo',
   components: {
@@ -57,6 +61,12 @@ export default {
         dueDate: '',
         timeline:''
       },
+       options: [
+        { text: 'TODO', value: 'TODO' },
+        { text: "DOING", value: 'DOING' },
+        { text: "DONE", value: 'DONE' },
+       
+      ],
       todos: [],
       dataFields: ['todos'],
       editedTodo: null
@@ -153,6 +163,12 @@ methods: {
     .form-wrapper{
       width: 80%;
       margin: 0 auto;
+    }
+    .kanban{
+      font-weight: bold;
+      font-size: 15px;
+      color: #fff;
+      text-align: right;
     }
     .title,
     .description, 
